@@ -5,12 +5,11 @@ using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 
-//#Ticket No: Start: Niranjani Devi:Adding EmployeeRepository dependency to the service 
+//#Ticket No: Start: Niranjani Devi:Adding EmployeeRepository dependency to the service  
 builder.Services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
-//#Ticket No:End: Niranjani Devi:Adding EmployeeRepository dependency to the service
+//#Ticket No:End: Niranjani Devi:Adding EmployeeRepository dependency object injecting to the service list
 
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
@@ -20,6 +19,8 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
         listenOptions.UseHttps(); // HTTPS
     });
 });
+
+///Fixed the CORS issue for client request allowing specific Origion
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
@@ -44,8 +45,8 @@ if (app.Environment.IsDevelopment())
 // Comment out or remove the following line if you do not want HTTPS redirection
 // app.UseHttpsRedirection();
 
+///Fixed the CORS issue for client request
 app.UseRouting();
-
 app.UseCors("AllowSpecificOrigin");
 
 

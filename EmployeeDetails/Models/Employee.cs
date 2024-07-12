@@ -2,6 +2,10 @@
 
 namespace EmployeeDetails.Models
 {
+    /// <summary>
+    /// Ticket No:<<>>
+    /// Creating the structure of the Employee records.
+    /// </summary>
     public class Employee
     {
         public int Id { get; set; }

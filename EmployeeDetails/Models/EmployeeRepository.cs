@@ -5,11 +5,21 @@ using System.Threading.Tasks;
 
 namespace EmployeeDetails.Models
 {
+    /// <summary>
+    /// Ticket No:<<>>
+    /// EmployeeRepository provides methods for CRUD operations on Employee data.
+    /// </summary>
     public class EmployeeRepository : IEmployeeRepository
     {
+        //Declaration of repository objects 
         private readonly List<Employee> _employees;
         private readonly ILogger<EmployeeRepository> _logger;
 
+        /// <summary>
+        /// Ticket No:<<>>
+        /// Initializes a new instance of the <see cref="EmployeeRepository"/> class.
+        /// </summary>
+        /// <param name="logger">The logger instance.</param>
         public EmployeeRepository(ILogger<EmployeeRepository> logger)
         {
             _logger = logger;
@@ -22,6 +32,11 @@ namespace EmployeeDetails.Models
             };
         }
 
+        /// <summary>
+        /// Ticket No:<<>>
+        /// Retrieves all employees asynchronously.
+        /// </summary>
+        /// <returns>A task representing an asynchronous operation that contains a list of employees.</returns>
         public Task<IEnumerable<Employee>> getAllEmployeesAsync()
         {
             Task<IEnumerable<Employee>> result = null;
@@ -36,6 +51,12 @@ namespace EmployeeDetails.Models
             return  result;
         }
 
+        /// <summary>
+        /// Ticket No:<<>>
+        /// Retrieves an employee by their ID asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the employee to retrieve.</param>
+        /// <returns>A task representing an asynchronous operation that contains the employee data.</returns>
         public Task<Employee> getEmployeeByIdAsync(int id)
         {
             Task<Employee> result=null;
@@ -52,6 +73,12 @@ namespace EmployeeDetails.Models
             return result;
         }
 
+        /// <summary>
+        /// Ticket No:<<>>
+        /// Adds a new employee asynchronously.
+        /// </summary>
+        /// <param name="employee">The employee data to add.</param>
+        /// <returns>A task representing an asynchronous operation that contains the added employee data.</returns>
         public Task<Employee> addEmployeeAsync(Employee employee)
         {
             Task<Employee> result = null;
@@ -69,6 +96,12 @@ namespace EmployeeDetails.Models
             return result;
         }
 
+        /// <summary>
+        /// Ticket No:<<>>
+        /// Updates an existing employee asynchronously.
+        /// </summary>
+        /// <param name="employee">The employee data to update.</param>
+        /// <returns>A task representing an asynchronous operation that contains the updated employee data.</returns>
         public Task<Employee> updateEmployeeAsync(Employee employee)
         {
             Task<Employee> result = null;
@@ -93,6 +126,12 @@ namespace EmployeeDetails.Models
             return result;
         }
 
+        /// <summary>
+        /// Ticket No:<<>>
+        /// Deletes an employee by their ID asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the employee to delete.</param>
+        /// <returns>A task representing an asynchronous operation.</returns>
         public Task deleteEmployeeAsync(int id)
         {
             Task<Employee> result = null;
